@@ -1,4 +1,4 @@
-setInterval(function () {
+function updateTime() {
   let athensElement = document.querySelector("#athens");
   let athensDateElement = athensElement.querySelector(".date");
   let athensTimeElement = athensElement.querySelector(".time");
@@ -8,9 +8,7 @@ setInterval(function () {
   athensTimeElement.innerHTML = athensTime.format(
     "h:mm:ss[<small>]A[</small>]"
   );
-}, 1000);
 
-function updateOlsoTime() {
   let osloElement = document.querySelector("#oslo");
   let osloDateElement = osloElement.querySelector(".date");
   let osloTimeElement = osloElement.querySelector(".time");
@@ -20,11 +18,15 @@ function updateOlsoTime() {
   osloTimeElement.innerHTML = osloTime.format("h:mm:ss[<small>]A[</small>]");
 }
 
-updateOlsoTime();
-setInterval(updateOlsoTime, 1000);
+updateTime();
+setInterval(updateTime, 1000);
 
 function updateCity(event) {
   let cityTimezone = event.target.value;
+  if (cityTimezone === "current") {
+    cityTimezone = moment.tz.guess();
+  }
+
   let cityName = cityTimezone.replace("_", " ").split("/")[1];
   let cityTime = moment().tz(cityTimezone);
   let citiesElement = document.querySelector("#cities");
