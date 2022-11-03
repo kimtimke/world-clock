@@ -1,21 +1,25 @@
 function updateTime() {
   let athensElement = document.querySelector("#athens");
-  let athensDateElement = athensElement.querySelector(".date");
-  let athensTimeElement = athensElement.querySelector(".time");
-  let athensTime = moment().tz("Europe/Athens");
+  if (athensElement) {
+    let athensDateElement = athensElement.querySelector(".date");
+    let athensTimeElement = athensElement.querySelector(".time");
+    let athensTime = moment().tz("Europe/Athens");
 
-  athensDateElement.innerHTML = moment().format("MMMM Do YYYY");
-  athensTimeElement.innerHTML = athensTime.format(
-    "h:mm:ss[<small>]A[</small>]"
-  );
+    athensDateElement.innerHTML = moment().format("MMMM Do YYYY");
+    athensTimeElement.innerHTML = athensTime.format(
+      "h:mm:ss[<small>]A[</small>]"
+    );
+  }
 
   let osloElement = document.querySelector("#oslo");
-  let osloDateElement = osloElement.querySelector(".date");
-  let osloTimeElement = osloElement.querySelector(".time");
-  let osloTime = moment().tz("Europe/Oslo");
+  if (osloElement) {
+    let osloDateElement = osloElement.querySelector(".date");
+    let osloTimeElement = osloElement.querySelector(".time");
+    let osloTime = moment().tz("Europe/Oslo");
 
-  osloDateElement.innerHTML = moment().format("MMMM Do YYYY");
-  osloTimeElement.innerHTML = osloTime.format("h:mm:ss[<small>]A[</small>]");
+    osloDateElement.innerHTML = moment().format("MMMM Do YYYY");
+    osloTimeElement.innerHTML = osloTime.format("h:mm:ss[<small>]A[</small>]");
+  }
 }
 
 updateTime();
@@ -38,7 +42,7 @@ function updateCity(event) {
           </div>
           <div class="time">${cityTime.format(
             "h:mm:ss"
-          )} <small>${cityTime.format("A")}</small> </div>
+          )} <small>${cityTime.format(" A")}</small> </div>
         </div>`;
 }
 
