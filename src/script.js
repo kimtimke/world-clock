@@ -7,7 +7,7 @@ function updateTime() {
 
     athensDateElement.innerHTML = moment().format("MMMM Do YYYY");
     athensTimeElement.innerHTML = athensTime.format(
-      "h:mm:ss[<small>]A[</small>]"
+      "h:mm:ss[<small>] A[</small>]"
     );
   }
 
@@ -18,7 +18,31 @@ function updateTime() {
     let osloTime = moment().tz("Europe/Oslo");
 
     osloDateElement.innerHTML = moment().format("MMMM Do YYYY");
-    osloTimeElement.innerHTML = osloTime.format("h:mm:ss[<small>]A[</small>]");
+    osloTimeElement.innerHTML = osloTime.format("h:mm:ss[<small>] A[</small>]");
+  }
+
+  let tokyoElement = document.querySelector("#tokyo");
+  if (tokyoElement) {
+    let tokyoDateElement = tokyoElement.querySelector(".date");
+    let tokyoTimeElement = tokyoElement.querySelector(".time");
+    let tokyoTime = moment().tz("Asia/Tokyo");
+
+    tokyoDateElement.innerHTML = moment().format("MMMM Do YYYY");
+    tokyoTimeElement.innerHTML = tokyoTime.format(
+      "h:mm:ss[<small>] A[</small>]"
+    );
+  }
+
+  let buenosairesElement = document.querySelector("#buenos-aires");
+  if (buenosairesElement) {
+    let buenosairesDateElement = buenosairesElement.querySelector(".date");
+    let buenosairesTimeElement = buenosairesElement.querySelector(".time");
+    let buenosairesTime = moment().tz("America/Argentina/Buenos_Aires");
+
+    buenosairesDateElement.innerHTML = moment().format("MMMM Do YYYY");
+    buenosairesTimeElement.innerHTML = buenosairesTime.format(
+      "h:mm:ss[<small>] A[</small>]"
+    );
   }
 }
 
@@ -35,7 +59,7 @@ function updateCity(event) {
   let cityTime = moment().tz(cityTimezone);
   let citiesElement = document.querySelector("#cities");
   citiesElement.innerHTML = `
-  <div class="city">
+  <div class="city d-sm-flex justify-content-between">
           <div>
             <h2>${cityName}</h2>
             <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
