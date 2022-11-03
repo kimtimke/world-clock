@@ -1,3 +1,8 @@
+:root {
+  --default-font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+}
+
 body {
   background-color: #f9f7fe;
 }
@@ -5,7 +10,7 @@ body {
 h1 {
   font-size: 45px;
   text-align: center;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: var(--default-font-family);
 }
 .homepage a {
   text-decoration: none;
@@ -21,6 +26,7 @@ h2 {
   margin: 0;
   font-size: 28px;
   text-align: left;
+  font-family: var(--default-font-family);
 }
 
 footer {
@@ -33,6 +39,11 @@ select {
   border-radius: 4px;
   padding: 10px;
   font-size: 18px;
+  font-family: var(--default-font-family);
+}
+
+img {
+  max-width: 300px;
 }
 
 .date {
